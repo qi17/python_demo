@@ -1,24 +1,24 @@
 """
 36 - 字符串不是纯数字
 """
-# s = 1.2
-# try:
-#     if s.isdigit():
-#         print(s+"是纯数字")
-#     else:
-#         print(s + "不是纯数字")
-# except Exception as e:
-#     print(e)
+s = 1.2
+try:
+    if s.isdigit():
+        print(s+"是纯数字")
+    else:
+        print(s + "不是纯数字")
+except Exception as e:
+    print(e)
 
 
 """
 37 - 将字符串 s ='ajkjdlajkfaikudda'去重再排序
 """
-# s = 'ajkjdlajkfaikudda'
-#
-# se = set(s)
-# print(se)
-# print(sorted(se))
+s = 'ajkjdlajkfaikudda'
+
+se = set(s)
+print(se)
+print(sorted(se))
 
 
 """
@@ -26,16 +26,16 @@
 
 切片语法 [start:stop:step] :省略-表示从头开始
 """
-# li = [1,2,3,3,2,1]
-# rev = list(reversed(li))
-# # 切片
-# slice1 = li[::-1]
-# print(li)
-# # if li == rev:
-# if li == slice1:
-#     print("True")
-# else:
-#     print('False')
+li = [1,2,3,3,2,1]
+rev = list(reversed(li))
+# 切片
+slice1 = li[::-1]
+print(li)
+# if li == rev:
+if li == slice1:
+    print("True")
+else:
+    print('False')
 
 """
 39 - 求列表长度最长的
