@@ -14,18 +14,25 @@ from bs4 import BeautifulSoup
 response = requests.get(target_url)
 response.encoding = 'utf-8'
 
-soup = BeautifulSoup(response.text, 'html.parser')
 
-# 还要学一下获取标签
-target_div_id='youjia'
-target_div = soup.find('div', id=target_div_id)
+#推荐使用lxml(pip install lxml)
+if response.status_code == 200:
+    # html.parser 是python内置解析器
+    # soup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(response.text, 'lxml')
 
-dl_tags = target_div.find_all('dl')
+    target_div_id='youjia'
+    target_div = soup.find('div', id=target_div_id)
+    #  find_all():返回所有匹配;find():返回第一个匹配
+    dl_tags = target_div.find_all('dl')
 
-result = []
-for x in dl_tags:
-    name = x.find('dt').extract()
-    price = x.find('dd').extract()
-    result.append({'name':name, 'price':price})
-
-print(result)
+    result = []
+    for x in dl_tags:
+        # 获取第一个 <dt> 标签中的文本内容
+        name = x.find('dt').get_text()
+        price = x.find('dd').get_text()
+        result.append({'name':name, 'price':price})
+    print('-----------------抓到数据------------')
+    print(result)
+else:
+    print('请求失败')
