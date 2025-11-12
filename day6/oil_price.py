@@ -29,6 +29,7 @@ if response.status_code == 200:
     result = []
     for x in dl_tags:
         # 获取第一个 <dt> 标签中的文本内容
+        # 也可以通过parent 和 children 获取父标签、子标签
         name = x.find('dt').get_text()
         price = x.find('dd').get_text()
         result.append({'name':name, 'price':price})
