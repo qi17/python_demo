@@ -1,7 +1,8 @@
 """
-pydantic
-运行时验证
-BaseModel
+pydantic vs 编译器
+运行时验证   静态检查
+
+核心 BaseModel
 
 """
 from dataclasses import dataclass
@@ -53,9 +54,9 @@ print(p)
 # 自动生成 __eq__ 方法，用于比较两个实例是否相等。
 # 可以根据需要生成 __hash__ 方法。
 # 支持默认值和类型注解，使得代码更加清晰。
-# class Student(Person):
-#     name: str
-#     gender: str
-#
-# s = Student(name='李四', gender='女')
-# print(s)
+class Student(Person):
+    name: str
+    gender: str
+
+s = Student(name='李四', gender='女',age=100)
+print(s)
