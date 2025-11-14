@@ -37,3 +37,6 @@ if response.status_code == 200:
     print(result)
 else:
     print('请求失败')
+
+#todo 抓取下次油价调整时间 以及 下次油价调整幅度
+
